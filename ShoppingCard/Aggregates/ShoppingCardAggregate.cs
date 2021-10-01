@@ -4,11 +4,7 @@ using ShoppingCard.Messages.Events;
 using ShoppingCard.Services;
 using ShoppingCard.Shared;
 using ShoppingCard.ValueObjects;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ShoppingCard.Aggregates
 {
@@ -33,7 +29,11 @@ namespace ShoppingCard.Aggregates
             
         public void Handle(AddProductToCard command)
         {
-           // Apply<ProductAddedToCard>
+            Apply<ProductAddedToCard>(e =>
+            {
+                e.Ean = command.Ean;
+                e.Quantity = command.Quantity;
+            });
         }
 
         protected override void Mutate(IEvent e)

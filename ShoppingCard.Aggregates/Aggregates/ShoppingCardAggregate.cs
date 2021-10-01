@@ -1,12 +1,12 @@
-﻿using ShoppingCard.Abstract;
+﻿using ShoppingCard.Aggregates.Abstract;
+using ShoppingCard.Aggregates.Services;
+using ShoppingCard.Core.Shared;
+using ShoppingCard.Core.ValueObjects;
 using ShoppingCard.Messages.Commands;
 using ShoppingCard.Messages.Events;
-using ShoppingCard.Services;
-using ShoppingCard.Shared;
-using ShoppingCard.ValueObjects;
 using System.Collections.Generic;
 
-namespace ShoppingCard.Aggregates
+namespace ShoppingCard.Aggregates.Aggregates
 {
     public class ShoppingCardAggregate : AggregateRoot
     {

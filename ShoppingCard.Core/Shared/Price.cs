@@ -1,12 +1,6 @@
-﻿using ShoppingCard.Exceptions;
-using ShoppingCard.ValueObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ShoppingCard.Core.Exceptions;
 
-namespace ShoppingCard.Shared
+namespace ShoppingCard.Core.Shared
 {
     public class Price
     {

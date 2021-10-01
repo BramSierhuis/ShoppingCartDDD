@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ShoppingCard.Core\ShoppingCard.Core.csproj" />
+    <ProjectReference Include="..\ShoppingCard.Messages\ShoppingCard.Messages.csproj" />
+  </ItemGroup>
+
+</Project>

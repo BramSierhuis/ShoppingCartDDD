@@ -1,14 +1,9 @@
-﻿using ShoppingCard.Aggregates;
+﻿using ShoppingCard.Aggregates.Aggregates;
+using ShoppingCard.Core.Shared;
 using ShoppingCard.Messages.Commands;
 using ShoppingCard.Messages.Events;
 using ShoppingCard.Services;
-using ShoppingCard.Shared;
-using ShoppingCard.ValueObjects;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace ShoppingCard.Tests

@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ShoppingCard.Shared
+namespace ShoppingCard.Core.Shared
 {
     public record UserId
     {

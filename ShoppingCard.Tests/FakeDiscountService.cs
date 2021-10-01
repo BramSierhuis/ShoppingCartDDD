@@ -1,4 +1,4 @@
-﻿using System;
+﻿using ShoppingCard.Aggregates.Services;
 
 namespace ShoppingCard.Services
 {

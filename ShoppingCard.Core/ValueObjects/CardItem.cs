@@ -1,11 +1,6 @@
-﻿using ShoppingCard.Shared;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ShoppingCard.Core.Shared;
 
-namespace ShoppingCard.ValueObjects
+namespace ShoppingCard.Core.ValueObjects
 {
     public class CardItem
     {

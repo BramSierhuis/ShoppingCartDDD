@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ShoppingCard.Messages\ShoppingCard.Messages.csproj" />
     <ProjectReference Include="..\ShoppingCard\ShoppingCard.csproj" />
   </ItemGroup>
 

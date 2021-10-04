@@ -1,12 +1,8 @@
 ﻿using EventStore.Client;
-using Grpc.Net.Client;
 using ShoppingCart.Core.AggregateStore;
 using ShoppingCart.Core.Shared;
 using ShoppingCart.Messages.Commands;
 using System;
-using System.Linq;
-using System.Text;
-using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace ShoppingCart

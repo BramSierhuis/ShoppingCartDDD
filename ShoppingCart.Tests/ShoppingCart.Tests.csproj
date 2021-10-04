@@ -20,9 +20,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ShoppingCard.Aggregates\ShoppingCard.Aggregates.csproj" />
-    <ProjectReference Include="..\ShoppingCard.Core\ShoppingCard.Core.csproj" />
-    <ProjectReference Include="..\ShoppingCard.Messages\ShoppingCard.Messages.csproj" />
+    <ProjectReference Include="..\ShoppingCart.Aggregates\ShoppingCart.Aggregates.csproj" />
+    <ProjectReference Include="..\ShoppingCart.Core\ShoppingCart.Core.csproj" />
+    <ProjectReference Include="..\ShoppingCart.Messages\ShoppingCart.Messages.csproj" />
   </ItemGroup>
 
 </Project>

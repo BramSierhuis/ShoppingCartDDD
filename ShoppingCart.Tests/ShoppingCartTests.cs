@@ -20,7 +20,7 @@ namespace ShoppingCard.Tests
             UserId userId = new(Guid.NewGuid());
             CardId cardId = new(Guid.NewGuid());
             ProductId productId = new(Guid.NewGuid());
-            int quantity = 4;
+            Quantity quantity = 4;
 
             CreateShoppingCard command = new() { UserId = userId };
 
@@ -37,7 +37,7 @@ namespace ShoppingCard.Tests
             UserId userId = new(Guid.NewGuid());
             CardId cardId = new(Guid.NewGuid());
             ProductId productId = new(Guid.NewGuid());
-            int quantity = 4;
+            Quantity quantity = 4;
 
             CreateShoppingCard createCmd = new() { UserId = userId };
 

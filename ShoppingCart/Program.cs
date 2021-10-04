@@ -41,14 +41,19 @@ namespace ShoppingCart
             await productService.Handle(command);
             await productService.Handle(changeCmd);
 
-
             //CardTest
             CartId cartId = Guid.NewGuid();
             UserId userId = Guid.NewGuid();
 
-            CreateShoppingCart createShoppingCart = new CreateShoppingCart { CartId = cartId, UserId = userId };
+            CreateShoppingCart createShoppingCart = new() { CartId = cartId, UserId = userId };
 
             await cartService.Handle(createShoppingCart);
+
+            //AddProductTest
+            AddProductToCart addProductToCart = new() { CartId = cartId, ProductId = productId, Quantity = new Quantity(5) };
+
+            await cartService.Handle(addProductToCart);
+            await cartService.Handle(addProductToCart);
         }
     }
 }

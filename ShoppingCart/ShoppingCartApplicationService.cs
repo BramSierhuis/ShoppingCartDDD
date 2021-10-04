@@ -31,5 +31,20 @@ namespace ShoppingCart
 
             await _store.Save<ShoppingCartAggregate, CartId>(cart);
         }
+
+        private async Task Handle(AddProductToCart cmd)
+        {
+            if (!await _store.Exists<ShoppingCartAggregate, CartId>(cmd.CartId))
+                throw new InvalidOperationException($"Cart with id {cmd.CartId} does not exist");
+
+            if (!await _store.Exists<ProductAggregate, ProductId>(cmd.ProductId))
+                throw new InvalidOperationException($"Product with id {cmd.ProductId} does not exist");
+
+            var cart = await _store.Load<ShoppingCartAggregate, CartId>(cmd.CartId);
+
+            cart.Handle(cmd);
+
+            await _store.Save<ShoppingCartAggregate, CartId>(cart);
+        }
     }
 }

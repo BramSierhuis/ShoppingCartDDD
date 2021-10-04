@@ -9,7 +9,7 @@ using System.Collections.Generic;
 
 namespace ShoppingCart.Aggregates.Aggregates
 {
-    public class ShoppingCartAggregate : AggregateRoot<Guid>
+    public class ShoppingCartAggregate : AggregateRoot<CartId>
     {
         public IList<CartItem> Items { get; private set; }
         public UserId UserId { get; private set; }

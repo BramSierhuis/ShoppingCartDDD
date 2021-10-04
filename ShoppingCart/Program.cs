@@ -11,12 +11,15 @@ namespace ShoppingCart
     {
         static async Task Main(string[] args)
         {
+            FakeDiscountService discountService = new FakeDiscountService();
             var settings = EventStoreClientSettings.Create("esdb://localhost:2113?tls=false");
             var client = new EventStoreClient(settings);
 
             AggregateStore store = new(client);
-            ProductApplicationService service = new(store);
+            ProductApplicationService productService = new(store);
+            ShoppingCartApplicationService cartService = new(store, discountService);
 
+            //ProductTest
             ProductId productId = Guid.NewGuid();
             string name = "TestProduct";
             string description = "Gewoon een mooi product ja?!";
@@ -35,10 +38,17 @@ namespace ShoppingCart
             };
             ChangeProductName changeCmd = new() { ProductId = productId, Name = "new Name" };
 
-            await service.Handle(command);
-            await service.Handle(changeCmd);
+            await productService.Handle(command);
+            await productService.Handle(changeCmd);
 
-            Console.ReadLine();
+
+            //CardTest
+            CartId cartId = Guid.NewGuid();
+            UserId userId = Guid.NewGuid();
+
+            CreateShoppingCart createShoppingCart = new CreateShoppingCart { CartId = cartId, UserId = userId };
+
+            await cartService.Handle(createShoppingCart);
         }
     }
 }

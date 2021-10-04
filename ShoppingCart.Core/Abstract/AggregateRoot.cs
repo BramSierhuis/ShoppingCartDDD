@@ -15,7 +15,7 @@ namespace ShoppingCart.Core.Abstract
             _events = new List<IEvent>();
         }
 
-        protected abstract void Mutate(IEvent e);
+        protected abstract void Mutate(object e);
 
         protected void Apply<TEvent>(Action<TEvent> action)
             where TEvent : IEvent
@@ -43,7 +43,7 @@ namespace ShoppingCart.Core.Abstract
             }
         }
 
-        public void Hydrate(IEnumerable<IEvent> events)
+        public void Hydrate(IEnumerable<object> events)
         {
             foreach (var @event in events)
             {
@@ -51,5 +51,12 @@ namespace ShoppingCart.Core.Abstract
                 Version++;
             }
         }
+
+        public void Flush()
+        {
+            _events.Clear();
+        }
+
+        public IEnumerable<IEvent> GetEvents() => _events;
     }
 }

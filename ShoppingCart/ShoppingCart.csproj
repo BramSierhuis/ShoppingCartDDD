@@ -6,6 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="EventStore.Client.Grpc.Streams" Version="21.2.0" />
+    <PackageReference Include="Grpc.Net.Client" Version="2.39.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ShoppingCart.Aggregates\ShoppingCart.Aggregates.csproj" />
+    <ProjectReference Include="..\ShoppingCart.Core\ShoppingCart.Core.csproj" />
     <ProjectReference Include="..\ShoppingCart.Messages\ShoppingCart.Messages.csproj" />
   </ItemGroup>
 

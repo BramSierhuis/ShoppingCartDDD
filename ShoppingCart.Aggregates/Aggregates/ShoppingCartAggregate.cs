@@ -39,7 +39,7 @@ namespace ShoppingCart.Aggregates.Aggregates
             });
         }
 
-        protected override void Mutate(IEvent e)
+        protected override void Mutate(object e)
             => When((dynamic)e);
 
         private void When(ProductAddedToCart @event)

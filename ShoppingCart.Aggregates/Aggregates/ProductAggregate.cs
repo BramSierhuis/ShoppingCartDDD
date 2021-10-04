@@ -13,6 +13,8 @@ namespace ShoppingCart.Aggregates.Aggregates
         public int Stock { get; private set; }
         public EAN Ean { get; private set; }
 
+        public ProductAggregate() { }
+
         public ProductAggregate(CreateProduct command)
         {
             Apply<ProductCreated>(e =>
@@ -30,12 +32,11 @@ namespace ShoppingCart.Aggregates.Aggregates
         {
             Apply<ProductNameChanged>(e =>
             {
-                e.ProductId = command.ProductId;
                 e.Name = command.Name;
             });
         }
 
-        protected override void Mutate(IEvent e)
+        protected override void Mutate(object e)
             => When((dynamic)e);
 
         private void When(ProductCreated @event)
@@ -50,7 +51,6 @@ namespace ShoppingCart.Aggregates.Aggregates
 
         private void When(ProductNameChanged @event)
         {
-            Id = @event.ProductId;
             Name = @event.Name;
         }
     }

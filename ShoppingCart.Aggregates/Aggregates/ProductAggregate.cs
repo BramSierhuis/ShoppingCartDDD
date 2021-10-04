@@ -32,6 +32,7 @@ namespace ShoppingCart.Aggregates.Aggregates
         {
             Apply<ProductNameChanged>(e =>
             {
+                e.ProductId = command.ProductId;
                 e.Name = command.Name;
             });
         }
@@ -51,6 +52,7 @@ namespace ShoppingCart.Aggregates.Aggregates
 
         private void When(ProductNameChanged @event)
         {
+            Id = @event.ProductId;
             Name = @event.Name;
         }
     }

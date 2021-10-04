@@ -37,10 +37,10 @@ namespace ShoppingCart
                 Price = price,
                 Stock = stock
             };
-            ChangeProductName changeCmd = new() { ProductId = Guid.Parse("6ddc2db3-ff05-42d1-b9fd-2e05aeef638e"), Name = "new Name" };
+            ChangeProductName changeCmd = new() { ProductId = productId, Name = "new Name" };
 
-            //service.Handle(command);
-            service.Handle(changeCmd);
+            await service.Handle(command);
+            await service.Handle(changeCmd);
 
             Console.ReadLine();
         }

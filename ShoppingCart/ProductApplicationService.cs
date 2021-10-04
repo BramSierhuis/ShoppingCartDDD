@@ -1,4 +1,5 @@
 ﻿using ShoppingCart.Aggregates.Aggregates;
+using ShoppingCart.Core;
 using ShoppingCart.Core.AggregateStore;
 using ShoppingCart.Core.Shared;
 using ShoppingCart.Messages.Commands;
@@ -7,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace ShoppingCart
 {
-    public class ProductApplicationService //TODO Implement : IApplicationService
+    public class ProductApplicationService : IApplicationService
     {
         private readonly IAggregateStore _store;
 
         public ProductApplicationService(IAggregateStore aggregateStore) => _store = aggregateStore;
 
-        public void Handle(object command) => Handle((dynamic)command);
+        public async Task Handle(object command) => await Handle((dynamic)command);
 
         private async Task Handle(CreateProduct cmd)
         {

@@ -2,11 +2,11 @@
 using System;
 using System.Collections.Generic;
 
-namespace ShoppingCard.Aggregates.Abstract
+namespace ShoppingCard.Core.Abstract
 {
-    public abstract class AggregateRoot
+    public abstract class AggregateRoot<TId>
     {
-        //public Guid guid
+        public TId Id { get; protected set; }
         public int Version { get; private set; }
         private readonly IList<IEvent> _events;
 
@@ -51,15 +51,5 @@ namespace ShoppingCard.Aggregates.Abstract
                 Version++;
             }
         }
-
-        //public IEnumerable<IEvent> Flush()
-        //{
-        //    var events = new List<IEvent>(_events);
-
-        //    _events.Clear();
-        //    Version += events.Count;
-
-        //    return events;
-        //}
     }
 }

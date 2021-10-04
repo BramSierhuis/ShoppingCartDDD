@@ -17,15 +17,16 @@ namespace ShoppingCard.Tests
         {
             // Given a discount service, userId, Ean and Quantity
             FakeDiscountService fakeDiscountService = new();
-            UserId userId = new (Guid.NewGuid());
-            long ean = 1234567891234;
+            UserId userId = new(Guid.NewGuid());
+            CardId cardId = new(Guid.NewGuid());
+            ProductId productId = new(Guid.NewGuid());
             int quantity = 4;
 
             CreateShoppingCard command = new() { UserId = userId };
 
             // Then a card can be created and hydrated
             _shoppingCard = new ShoppingCardAggregate(command, fakeDiscountService);
-            _shoppingCard.Hydrate(new[] { new ProductAddedToCard() { Ean = ean, Quantity = quantity } });
+            _shoppingCard.Hydrate(new[] { new ProductAddedToCard() { ProductId = productId, CardId = cardId, Quantity = quantity } });
         }
 
         [Fact]
@@ -34,7 +35,8 @@ namespace ShoppingCard.Tests
             // Given a discount service, userId, Ean and Quantity
             FakeDiscountService fakeDiscountService = new();
             UserId userId = new(Guid.NewGuid());
-            long ean = 1234567891234;
+            CardId cardId = new(Guid.NewGuid());
+            ProductId productId = new(Guid.NewGuid());
             int quantity = 4;
 
             CreateShoppingCard createCmd = new() { UserId = userId };
@@ -42,7 +44,7 @@ namespace ShoppingCard.Tests
             // Then a card can be created and hydrated
             _shoppingCard = new ShoppingCardAggregate(createCmd, fakeDiscountService);
 
-            AddProductToCard addCmd = new() { Ean = ean, Quantity = quantity };
+            AddProductToCard addCmd = new() { ProductId = productId, CardId = cardId, Quantity = quantity };
 
             _shoppingCard.Handle(addCmd);
 

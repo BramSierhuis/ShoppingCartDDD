@@ -4,12 +4,12 @@ namespace ShoppingCard.Core.ValueObjects
 {
     public class CardItem
     {
-        public EAN ean;
+        public ProductId ProductId {  get; set; }
         public Quantity quantity;
 
-        public CardItem(EAN ean, Quantity quantity)
+        public CardItem(ProductId productId, Quantity quantity)
         {
-            this.ean = ean;
+            this.ProductId = productId;
             this.quantity = quantity;
         }
     }

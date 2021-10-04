@@ -1,14 +1,15 @@
-﻿using ShoppingCard.Aggregates.Abstract;
-using ShoppingCard.Aggregates.Services;
+﻿using ShoppingCard.Aggregates.Services;
+using ShoppingCard.Core.Abstract;
 using ShoppingCard.Core.Shared;
 using ShoppingCard.Core.ValueObjects;
 using ShoppingCard.Messages.Commands;
 using ShoppingCard.Messages.Events;
+using System;
 using System.Collections.Generic;
 
 namespace ShoppingCard.Aggregates.Aggregates
 {
-    public class ShoppingCardAggregate : AggregateRoot
+    public class ShoppingCardAggregate : AggregateRoot<Guid>
     {
         public IList<CardItem> Items { get; private set; }
         public UserId UserId { get; private set; }
@@ -21,6 +22,7 @@ namespace ShoppingCard.Aggregates.Aggregates
         {
             Apply<ShoppingCardCreated>(e =>
             {
+                e.CardId = command.CardId;
                 e.UserId = command.UserId;
             });
 
@@ -31,7 +33,8 @@ namespace ShoppingCard.Aggregates.Aggregates
         {
             Apply<ProductAddedToCard>(e =>
             {
-                e.Ean = command.Ean;
+                e.ProductId = command.ProductId;
+                e.CardId = command.CardId;
                 e.Quantity = command.Quantity;
             });
         }
@@ -41,11 +44,12 @@ namespace ShoppingCard.Aggregates.Aggregates
 
         private void When(ProductAddedToCard @event)
         {
-            Items.Add(new(@event.Ean, @event.Quantity));
+            Items.Add(new(@event.ProductId, @event.Quantity));
         }
 
         private void When(ShoppingCardCreated @event)
         {
+            Id = @event.CardId;
             UserId = @event.UserId;
         }
     }

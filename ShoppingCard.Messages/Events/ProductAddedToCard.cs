@@ -1,8 +1,11 @@
-﻿namespace ShoppingCard.Messages.Events
+﻿using System;
+
+namespace ShoppingCard.Messages.Events
 {
     public class ProductAddedToCard : IEvent
     {
-        public long Ean { get; set; }
+        public Guid ProductId { get; set; }
+        public Guid CardId { get; set; }
         public int Quantity { get; set; }
     }
 }

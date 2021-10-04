@@ -1,11 +1,11 @@
-﻿using ShoppingCard.Aggregates.Abstract;
+﻿using ShoppingCard.Core.Abstract;
 using ShoppingCard.Core.Shared;
 using ShoppingCard.Messages.Commands;
 using ShoppingCard.Messages.Events;
 
 namespace ShoppingCard.Aggregates.Aggregates
 {
-    public class ProductAggregate : AggregateRoot
+    public class ProductAggregate : AggregateRoot<ProductId>
     {
         public string Name { get; private set; }
         public string Description { get; private set; }
@@ -17,6 +17,7 @@ namespace ShoppingCard.Aggregates.Aggregates
         {
             Apply<ProductCreated>(e =>
             {
+                e.ProductId = command.ProductId;
                 e.Name = command.Name;
                 e.Description = command.Description;
                 e.Price = command.Price;
@@ -29,6 +30,7 @@ namespace ShoppingCard.Aggregates.Aggregates
         {
             Apply<ProductNameChanged>(e =>
             {
+                e.ProductId = command.ProductId;
                 e.Name = command.Name;
             });
         }
@@ -38,6 +40,7 @@ namespace ShoppingCard.Aggregates.Aggregates
 
         private void When(ProductCreated @event)
         {
+            Id = @event.ProductId;
             Name = @event.Name;
             Description = @event.Description;
             Price = @event.Price;
@@ -47,6 +50,7 @@ namespace ShoppingCard.Aggregates.Aggregates
 
         private void When(ProductNameChanged @event)
         {
+            Id = @event.ProductId;
             Name = @event.Name;
         }
     }

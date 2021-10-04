@@ -1,9 +1,9 @@
-﻿using ShoppingCard.Core.Abstract;
-using ShoppingCard.Core.Shared;
-using ShoppingCard.Messages.Commands;
-using ShoppingCard.Messages.Events;
+﻿using ShoppingCart.Core.Abstract;
+using ShoppingCart.Core.Shared;
+using ShoppingCart.Messages.Commands;
+using ShoppingCart.Messages.Events;
 
-namespace ShoppingCard.Aggregates.Aggregates
+namespace ShoppingCart.Aggregates.Aggregates
 {
     public class ProductAggregate : AggregateRoot<ProductId>
     {

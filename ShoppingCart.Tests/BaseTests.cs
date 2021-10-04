@@ -1,8 +1,8 @@
-﻿using ShoppingCard.Core.Exceptions;
-using ShoppingCard.Core.Shared;
+﻿using ShoppingCart.Core.Exceptions;
+using ShoppingCart.Core.Shared;
 using Xunit;
 
-namespace ShoppingCard.Tests
+namespace ShoppingCart.Tests
 {
     public class BaseTests
     {

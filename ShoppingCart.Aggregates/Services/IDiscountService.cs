@@ -1,4 +1,4 @@
-﻿namespace ShoppingCard.Aggregates.Services
+﻿namespace ShoppingCart.Aggregates.Services
 {
     public interface IDiscountService
     {

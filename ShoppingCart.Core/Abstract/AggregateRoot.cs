@@ -1,8 +1,8 @@
-﻿using ShoppingCard.Messages.Events;
+﻿using ShoppingCart.Messages.Events;
 using System;
 using System.Collections.Generic;
 
-namespace ShoppingCard.Core.Abstract
+namespace ShoppingCart.Core.Abstract
 {
     public abstract class AggregateRoot<TId>
     {

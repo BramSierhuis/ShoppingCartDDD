@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ShoppingCard
+namespace ShoppingCart
 {
     class Program
     {

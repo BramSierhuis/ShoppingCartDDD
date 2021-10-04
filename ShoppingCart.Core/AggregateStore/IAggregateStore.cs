@@ -1,11 +1,11 @@
-﻿using ShoppingCard.Core.Abstract;
+﻿using ShoppingCart.Core.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShoppingCard.Core.AggregateStore
+namespace ShoppingCart.Core.AggregateStore
 {
     public interface IAggregateStore
     {

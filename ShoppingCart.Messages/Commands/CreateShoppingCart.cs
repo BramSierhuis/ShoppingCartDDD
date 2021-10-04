@@ -1,10 +1,10 @@
 ﻿using System;
 
-namespace ShoppingCard.Messages.Commands
+namespace ShoppingCart.Messages.Commands
 {
-    public class CreateShoppingCard : ICommand
+    public class CreateShoppingCart : ICommand
     {
-        public Guid CardId {  get; set; }
+        public Guid CartId {  get; set; }
         public Guid UserId {  get; set; }
     }
 }

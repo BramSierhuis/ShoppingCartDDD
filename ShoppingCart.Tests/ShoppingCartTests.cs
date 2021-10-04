@@ -1,54 +1,54 @@
-﻿using ShoppingCard.Aggregates.Aggregates;
-using ShoppingCard.Core.Shared;
-using ShoppingCard.Messages.Commands;
-using ShoppingCard.Messages.Events;
-using ShoppingCard.Services;
+﻿using ShoppingCart.Aggregates.Aggregates;
+using ShoppingCart.Core.Shared;
+using ShoppingCart.Messages.Commands;
+using ShoppingCart.Messages.Events;
+using ShoppingCart.Services;
 using System;
 using Xunit;
 
-namespace ShoppingCard.Tests
+namespace ShoppingCart.Tests
 {
-    public class ShoppingCardTests
+    public class ShoppingCartTests
     {
-        private ShoppingCardAggregate _shoppingCard;
+        private ShoppingCartAggregate _shoppingCart;
 
         [Fact]
-        public void CreateCard_CreatesCard()
+        public void CreateCart_CreatesCart()
         {
             // Given a discount service, userId, Ean and Quantity
             FakeDiscountService fakeDiscountService = new();
             UserId userId = new(Guid.NewGuid());
-            CardId cardId = new(Guid.NewGuid());
+            CartId CartId = new(Guid.NewGuid());
             ProductId productId = new(Guid.NewGuid());
             Quantity quantity = 4;
 
-            CreateShoppingCard command = new() { UserId = userId };
+            CreateShoppingCart command = new() { UserId = userId };
 
-            // Then a card can be created and hydrated
-            _shoppingCard = new ShoppingCardAggregate(command, fakeDiscountService);
-            _shoppingCard.Hydrate(new[] { new ProductAddedToCard() { ProductId = productId, CardId = cardId, Quantity = quantity } });
+            // Then a Cart can be created and hydrated
+            _shoppingCart = new ShoppingCartAggregate(command, fakeDiscountService);
+            _shoppingCart.Hydrate(new[] { new ProductAddedToCart() { ProductId = productId, CartId = CartId, Quantity = quantity } });
         }
 
         [Fact]
-        public void D_AddProductToCard()
+        public void D_AddProductToCart()
         {
             // Given a discount service, userId, Ean and Quantity
             FakeDiscountService fakeDiscountService = new();
             UserId userId = new(Guid.NewGuid());
-            CardId cardId = new(Guid.NewGuid());
+            CartId CartId = new(Guid.NewGuid());
             ProductId productId = new(Guid.NewGuid());
             Quantity quantity = 4;
 
-            CreateShoppingCard createCmd = new() { UserId = userId };
+            CreateShoppingCart createCmd = new() { UserId = userId };
 
-            // Then a card can be created and hydrated
-            _shoppingCard = new ShoppingCardAggregate(createCmd, fakeDiscountService);
+            // Then a Cart can be created and hydrated
+            _shoppingCart = new ShoppingCartAggregate(createCmd, fakeDiscountService);
 
-            AddProductToCard addCmd = new() { ProductId = productId, CardId = cardId, Quantity = quantity };
+            AddProductToCart addCmd = new() { ProductId = productId, CartId = CartId, Quantity = quantity };
 
-            _shoppingCard.Handle(addCmd);
+            _shoppingCart.Handle(addCmd);
 
-            Assert.Equal(1, _shoppingCard.Items.Count);
+            Assert.Equal(1, _shoppingCart.Items.Count);
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ShoppingCard.Core.Exceptions
+namespace ShoppingCart.Core.Exceptions
 {
     public static class ProductExceptions
     {

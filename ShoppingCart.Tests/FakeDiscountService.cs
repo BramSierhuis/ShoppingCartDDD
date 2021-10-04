@@ -1,6 +1,6 @@
-﻿using ShoppingCard.Aggregates.Services;
+﻿using ShoppingCart.Aggregates.Services;
 
-namespace ShoppingCard.Services
+namespace ShoppingCart.Services
 {
     public class FakeDiscountService : IDiscountService
     {

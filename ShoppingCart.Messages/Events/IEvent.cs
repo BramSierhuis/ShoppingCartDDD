@@ -1,4 +1,4 @@
-﻿namespace ShoppingCard.Messages.Events
+﻿namespace ShoppingCart.Messages.Events
 {
     public interface IEvent
     {

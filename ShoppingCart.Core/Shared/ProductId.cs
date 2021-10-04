@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ShoppingCard.Core.Shared
+namespace ShoppingCart.Core.Shared
 {
     public record ProductId
     {

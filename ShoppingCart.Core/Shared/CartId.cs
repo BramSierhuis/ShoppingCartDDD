@@ -1,19 +1,19 @@
 ﻿using System;
 
-namespace ShoppingCard.Core.Shared
+namespace ShoppingCart.Core.Shared
 {
-    public record CardId
+    public record CartId
     {
         public Guid Value { get; private set; }
 
-        public CardId(Guid id)
+        public CartId(Guid id)
         {
             Value = id;
         }
 
-        public static implicit operator Guid(CardId self) => self.Value;
+        public static implicit operator Guid(CartId self) => self.Value;
 
-        public static implicit operator CardId(Guid value)
+        public static implicit operator CartId(Guid value)
             => new(value);
 
         public override string ToString() => Value.ToString();

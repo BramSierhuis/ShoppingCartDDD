@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ShoppingCard.Messages.Events
+namespace ShoppingCart.Messages.Events
 {
     public class ProductCreated : IEvent
     {

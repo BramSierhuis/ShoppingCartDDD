@@ -1,6 +1,6 @@
-﻿using ShoppingCard.Core.Exceptions;
+﻿using ShoppingCart.Core.Exceptions;
 
-namespace ShoppingCard.Core.Shared
+namespace ShoppingCart.Core.Shared
 {
     public class Price
     {

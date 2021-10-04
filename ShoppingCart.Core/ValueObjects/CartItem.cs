@@ -1,13 +1,13 @@
-﻿using ShoppingCard.Core.Shared;
+﻿using ShoppingCart.Core.Shared;
 
-namespace ShoppingCard.Core.ValueObjects
+namespace ShoppingCart.Core.ValueObjects
 {
-    public class CardItem
+    public class CartItem
     {
         public ProductId ProductId {  get; set; }
         public Quantity quantity;
 
-        public CardItem(ProductId productId, Quantity quantity)
+        public CartItem(ProductId productId, Quantity quantity)
         {
             this.ProductId = productId;
             this.quantity = quantity;

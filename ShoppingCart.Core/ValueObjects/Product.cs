@@ -1,6 +1,6 @@
-﻿using ShoppingCard.Core.Shared;
+﻿using ShoppingCart.Core.Shared;
 
-namespace ShoppingCard.Core.ValueObjects
+namespace ShoppingCart.Core.ValueObjects
 {
     public class Product
     {

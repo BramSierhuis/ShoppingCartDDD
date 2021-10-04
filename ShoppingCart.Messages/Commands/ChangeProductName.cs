@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ShoppingCard.Messages.Commands
+namespace ShoppingCart.Messages.Commands
 {
     public class ChangeProductName : ICommand
     {

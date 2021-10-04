@@ -1,9 +1,9 @@
-﻿using ShoppingCard.Aggregates.Aggregates;
-using ShoppingCard.Core.Shared;
-using ShoppingCard.Messages.Commands;
+﻿using ShoppingCart.Aggregates.Aggregates;
+using ShoppingCart.Core.Shared;
+using ShoppingCart.Messages.Commands;
 using Xunit;
 
-namespace ShoppingCard.Tests
+namespace ShoppingCart.Tests
 {
     public class ProductTests
     {

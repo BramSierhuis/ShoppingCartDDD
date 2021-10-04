@@ -1,4 +1,4 @@
-﻿namespace ShoppingCard.Messages.Commands
+﻿namespace ShoppingCart.Messages.Commands
 {
     public interface ICommand
     {

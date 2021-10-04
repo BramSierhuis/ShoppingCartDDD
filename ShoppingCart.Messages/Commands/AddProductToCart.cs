@@ -1,11 +1,11 @@
 ﻿using System;
 
-namespace ShoppingCard.Messages.Commands
+namespace ShoppingCart.Messages.Commands
 {
-    public class AddProductToCard
+    public class AddProductToCart
     {
         public Guid ProductId { get; set; }
-        public Guid CardId { get; set; }
+        public Guid CartId { get; set; }
         public int Quantity { get; set; }
     }
 }

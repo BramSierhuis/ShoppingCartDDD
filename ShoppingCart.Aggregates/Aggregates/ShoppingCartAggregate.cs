@@ -1,40 +1,40 @@
-﻿using ShoppingCard.Aggregates.Services;
-using ShoppingCard.Core.Abstract;
-using ShoppingCard.Core.Shared;
-using ShoppingCard.Core.ValueObjects;
-using ShoppingCard.Messages.Commands;
-using ShoppingCard.Messages.Events;
+﻿using ShoppingCart.Aggregates.Services;
+using ShoppingCart.Core.Abstract;
+using ShoppingCart.Core.Shared;
+using ShoppingCart.Core.ValueObjects;
+using ShoppingCart.Messages.Commands;
+using ShoppingCart.Messages.Events;
 using System;
 using System.Collections.Generic;
 
-namespace ShoppingCard.Aggregates.Aggregates
+namespace ShoppingCart.Aggregates.Aggregates
 {
-    public class ShoppingCardAggregate : AggregateRoot<Guid>
+    public class ShoppingCartAggregate : AggregateRoot<Guid>
     {
-        public IList<CardItem> Items { get; private set; }
+        public IList<CartItem> Items { get; private set; }
         public UserId UserId { get; private set; }
 
         private IDiscountService _discountService;
 
-        private ShoppingCardAggregate() => Items = new List<CardItem>();
+        private ShoppingCartAggregate() => Items = new List<CartItem>();
 
-        public ShoppingCardAggregate(CreateShoppingCard command, IDiscountService discountService) : this()
+        public ShoppingCartAggregate(CreateShoppingCart command, IDiscountService discountService) : this()
         {
-            Apply<ShoppingCardCreated>(e =>
+            Apply<ShoppingCartCreated>(e =>
             {
-                e.CardId = command.CardId;
+                e.CartId = command.CartId;
                 e.UserId = command.UserId;
             });
 
             _discountService = discountService;
         }
             
-        public void Handle(AddProductToCard command)
+        public void Handle(AddProductToCart command)
         {
-            Apply<ProductAddedToCard>(e =>
+            Apply<ProductAddedToCart>(e =>
             {
                 e.ProductId = command.ProductId;
-                e.CardId = command.CardId;
+                e.CartId = command.CartId;
                 e.Quantity = command.Quantity;
             });
         }
@@ -42,14 +42,14 @@ namespace ShoppingCard.Aggregates.Aggregates
         protected override void Mutate(IEvent e)
             => When((dynamic)e);
 
-        private void When(ProductAddedToCard @event)
+        private void When(ProductAddedToCart @event)
         {
             Items.Add(new(@event.ProductId, @event.Quantity));
         }
 
-        private void When(ShoppingCardCreated @event)
+        private void When(ShoppingCartCreated @event)
         {
-            Id = @event.CardId;
+            Id = @event.CartId;
             UserId = @event.UserId;
         }
     }
